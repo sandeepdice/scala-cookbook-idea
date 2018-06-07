@@ -23,6 +23,8 @@ abstract class AnimalAbstractClass(name : String) {
   def absMethod
   var aAbsVarField : String
   val bAbsValField : String = s"From AnimalAbstractClass $name"
+  val secondVal : String
+  var secondVar : String
 
   def sayHello = { println(s"Hello, $aAbsVarField")}
 
@@ -31,5 +33,16 @@ abstract class AnimalAbstractClass(name : String) {
 
 class Dog (name : String) extends AnimalAbstractClass (name : String) {
   override def absMethod: Unit = { println("Doggy's absMethod")}
+
+//  In the .class of abstract class, we will not find definition of variables,
+  // so, the vars or vals has to be redefined in the concrete class
+  //  aAbsVarField = "10"
+
   var aAbsVarField : String = s"$aAbsVarField, name"
+   override val bAbsValField: String = "overridden val"
+  // if the initial value is not defined in parent, we don't need override keyword
+  val secondVal : String = "second val"
+
+  // we don't need var or override
+   /* var override */var secondVar = "test"
 }
