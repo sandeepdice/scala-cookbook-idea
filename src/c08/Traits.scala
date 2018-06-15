@@ -38,3 +38,26 @@ abstract class Abs2 extends A with B with C {
 
     https://alvinalexander.com/scala/how-to-use-scala-trait-like-java-interface-cookbook
   **/
+
+
+abstract class Animal {
+  def speak
+}
+
+trait WaggingTail {
+  def startTail { println("tail started") }
+  def stopTail { println("tail stopped") }
+}
+
+trait FourLeggedAnimal {
+  def walk
+  def run
+}
+
+class Dog extends Animal with WaggingTail with FourLeggedAnimal {
+  // implementation code here ...
+  def speak { println("Dog says 'woof'") }
+  def walk { println("Dog is walking") }
+  def run { println("Dog is running") }
+}
+
